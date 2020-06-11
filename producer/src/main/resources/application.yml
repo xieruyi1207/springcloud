@@ -1,0 +1,54 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: kelly
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8
+  #微服务名称
+  application:
+    name: kelly-provider-depart
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info
+    org.hibernate: info
+    org.hibernate.type.description.sql.BasicBinder: trace
+    org.hibernate.hql.internal.ast.exec.BasciExecutor: trace
+    com.kelly.producer: debug
+
+eureka:
+  instance:
+    instance-id: kelly-provider
+#    lease-renewal-interval-in-seconds: 1
+#    lease-expiration-duration-in-seconds: 3
+  client:
+    service-url:
+      defaultZone: http://eureka8100.com:8100/eureka,http://eureka8200.com:8200/eureka, http://eureka8300.com:8300/eureka
+
+
+info:
+  app.auth: kelly
+  app.name: msc
+  company.name: www.kelly.name
+  company.addr: BJ
+
+
+management:
+  #开启所有监控终端
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #开启shutdown监控终端，这时可通过访问/auctotor/shutdown将该服务关掉
+  endpoint:
+    shutdown:
+      enabled: true

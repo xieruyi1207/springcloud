@@ -1,0 +1,17 @@
+
+eureka:
+  instance:
+    instance-id: kelly-consumer
+  client:
+    service-url:
+      defaultZone: http://eureka8100.com:8100/eureka/,http://eureka8200.com:8200/eureka, http://eureka8300.com:8300/eureka
+info:
+  app.auth: kelly
+  app.name: msc
+  company.name: www.kelly.name
+  company.addr: BJ
+spring:
+  application:
+    name: kelly-consumer-depart
+server:
+  port: 8082
